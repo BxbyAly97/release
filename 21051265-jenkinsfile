@@ -1,0 +1,39 @@
+pipeline {
+ agent any
+ stages {
+	stage('Stage1 - 21051265') {
+		steps {
+		echo "Stage 1 Completed - 21051265"
+		}
+	}
+	stage('Stage2 - 21051265') {
+	parallel {
+		stage ('Stage2 - 21051265') {
+		agent {
+			docker {
+				image 'apache2-21051265-image'
+			}
+		}
+		steps {
+		echo "Stage 2 Completed - 21051265"
+		}
+	}	
+	stage ('Stage3 - 21051265') {
+		step {
+		}
+	}	
+	}
+	stage ('Stage4 - 21051265') {
+		step {
+		input('Proceed to release the work?')
+		}	
+	}
+	stage ('Stage5 - 21051265') {
+	when {
+	not {
+	Abort
+	}	
+	steps {
+	echo "Work Released - 21051265"
+	}	
+	}
