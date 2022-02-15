@@ -29,11 +29,14 @@ pipeline {
 		}	
 	}
 	stage ('Stage5 - 21051265') {
-	when {
-	not {
-	Abort
+		when {
+			not {
+				Abort
+			}	
+		steps {
+			echo "Work Released - 21051265"
+			}	
+		}
 	}	
-	steps {
-	echo "Work Released - 21051265"
-	}	
-	}
+}
+}
