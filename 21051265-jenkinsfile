@@ -9,15 +9,17 @@ pipeline {
 	stage('Stage2 - 21051265') {
 	parallel {
 		stage ('Stage2 - 21051265') {
-		agent { docker 'stage2-21051265-container'}
-			docker {
-				image 'apache2-21051265-image'
+		steps {
+			agent { docker 'stage2-21051265-container'}
+				docker {
+					image 'apache2-21051265-image'
+				}
 			}
 		}
 		steps {
 		echo "Stage 2 Completed - 21051265"
 		}
-	}	
+		
 		stage ('Stage3 - 21051265') {
 				steps {
 					echo "Stage 3 Completed - 21051265"
@@ -25,14 +27,20 @@ pipeline {
 			}	
 		}
 	}
-	stage ('Stage4 - 21051265') {
+	stage('Stage4 - 21051265') {
 		steps {
-			input('Proceed to release the work?')
+			input{
+			message 'Proceed to release the work?'
+			parameters{
+				choice (name:'CHOICES', choices: ['Proceed', 'Abort'])
+			}
+			}
+			
 		}	
 	}
-	stage ('Stage5 - 21051265') {
+	stage('Stage5 - 21051265') {
 		when {
-			equal "Proceed"	
+			${params.CHOICE} equal "Proceed"	
 			steps {
 				echo "Work Released - 21051265"
 					
