@@ -35,12 +35,13 @@ pipeline {
 			equal "Proceed"	
 			steps {
 				echo "Work Released - 21051265"
-				}	
+					
 			}
 		}
 		post {
 			aborted
-			}
 		}
+		
 	}
+}
 }
