@@ -30,26 +30,23 @@ pipeline {
 	stage('Stage4 - 21051265') {
 		steps {
 			input{
-			message 'Proceed to release the work?'
-			parameters{
-				choice (name:'CHOICES', choices: ['Proceed', 'Abort'])
-			}
+				message "Proceed to release the work?"
+				parameters{
+					choice (name:'CHOICES', choices: ['Proceed', 'Abort'])
+				}
 			}
 			
 		}	
 	}
 	stage('Stage5 - 21051265') {
 		when {
-			${params.CHOICE} equal "Proceed"	
+			${params.CHOICE} equals "Proceed"	
 			steps {
 				echo "Work Released - 21051265"
 					
 			}
 		}
-		post {
-			aborted
-		}
-		
+		post {aborted}
 	}
 }
 }
