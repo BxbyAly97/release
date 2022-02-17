@@ -3,7 +3,7 @@ pipeline {
  stages {
 	stage('Stage1 - 21051265') {
 		steps {
-		echo "Stage 1 Completed - 21051265"
+			echo "Stage 1 Completed - 21051265"
 		}
 	}
 	stage('Stage2 - 21051265') {
@@ -18,14 +18,15 @@ pipeline {
 		echo "Stage 2 Completed - 21051265"
 		}
 	}	
-	stage ('Stage3 - 21051265') {
-		step {
+		stage ('Stage3 - 21051265') {
+				step {
+				}
+			}	
 		}
-	}	
 	}
 	stage ('Stage4 - 21051265') {
 		step {
-		input('Proceed to release the work?')
+			input('Proceed to release the work?')
 		}	
 	}
 	stage ('Stage5 - 21051265') {
@@ -33,10 +34,10 @@ pipeline {
 			not {
 				Abort
 			}	
-		steps {
-			echo "Work Released - 21051265"
-			}	
-		}
-	}	
-}
+			steps {
+				echo "Work Released - 21051265"
+				}	
+			}
+		}		
+	}
 }
