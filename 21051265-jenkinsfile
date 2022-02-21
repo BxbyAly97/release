@@ -10,11 +10,12 @@ pipeline {
 	parallel {
 		stage('Stage2 - 21051265') {
 			steps {
-				
 				sh "docker container create --name="stage2-21051265-container" apache2-21051265"
-				
+			}
+			steps {
 				echo "Stage 2 Completed - 21051265"
 			}
+		}
 		
 		stage('Stage3 - 21051265') {
 				steps {
