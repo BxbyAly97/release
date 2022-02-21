@@ -15,8 +15,6 @@ pipeline {
 						image 'apache2-21051265-image' label 'stage2-21051265-container' arg '-d'
 					}
 				}
-			}
-			steps {
 				echo "Stage 2 Completed - 21051265"
 			}
 		
